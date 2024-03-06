@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import {colors} from '../../utils/colors';
 import Plane from '../atoms/Plane';
 
@@ -7,7 +7,7 @@ const Abreviation = () => {
   return (
     <View style={styles.abreviationContainer}>
       <Text style={styles.abreviationText}>MEX</Text>
-      <Plane color={'black'} thickness={'black'} width={'50%'} />
+      <Plane />
       <Text style={styles.abreviationText}>DUB</Text>
     </View>
   );
@@ -105,7 +105,12 @@ const Cities = () => {
         </View>
         <Abreviation />
         <TicketInfo />
-        <View style={styles.divider} />
+        {/* <View style={styles.divider} /> */}
+        <Image
+          source={require('../../../assets/images/dashedLine.png')}
+          resizeMode="contain"
+          style={styles.divider}
+        />
         <PassengerInfo />
       </View>
     </>
@@ -148,11 +153,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   divider: {
-    borderStyle: 'dashed',
     marginTop: 10,
-    borderBottomColor: colors.ligthGray,
-    borderBottomWidth: 1,
-    width: 'auto',
   },
 });
 

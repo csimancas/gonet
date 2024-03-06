@@ -14,7 +14,7 @@ const array = [
   },
   {
     title: 'Transporte al aeropuerto',
-    description: 'Usa el cupon: 123123 en Uber',
+    description: 'Usa el cupon:  en Uber',
     icon: 'bus',
   },
 ];
@@ -33,7 +33,7 @@ const imageIcon = (type: string) => {
 const AmenitiesCard = () => {
   return (
     <View style={styles.container}>
-      {array.map(item => {
+      {array.map((item, index) => {
         return (
           <View style={styles.boxContainer} key={item.title}>
             <Image
@@ -42,7 +42,24 @@ const AmenitiesCard = () => {
             />
             <View>
               <Text style={styles.title}>{item.title}</Text>
-              <Text style={styles.description}>{item.description}</Text>
+              {index === 2 ? (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                  }}>
+                  <Text style={styles.description}>
+                    {item.description.replace(' en Uber', ' ')}
+                  </Text>
+                  <Image
+                    source={require('../../../assets/images/Cuppon.png')}
+                  />
+                  <Text style={[styles.description, {marginLeft: 2}]}>
+                    {item.description.substring(item.description.indexOf('en'))}
+                  </Text>
+                </View>
+              ) : (
+                <Text style={styles.description}>{item.description}</Text>
+              )}
             </View>
           </View>
         );
