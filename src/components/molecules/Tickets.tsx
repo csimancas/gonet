@@ -1,11 +1,11 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {colors} from '../../utils/colors';
+import {FlatList, StyleSheet, View, Dimensions} from 'react-native';
 import CardTop from '../atoms/CardTop';
 import Cities from '../atoms/Cities';
 import BarCode from '../atoms/BarCode';
-import Dots from '../atoms/Dots';
 import ScrollDots from '../atoms/ScrollDots';
+
+const {width} = Dimensions.get('window');
 
 const array = [1, 2, 3];
 
@@ -44,22 +44,21 @@ const Tickets = () => {
 const styles = StyleSheet.create({
   flatListContainer: {
     marginTop: 25,
-    paddingHorizontal: 25,
+    // paddingHorizontal: 25,
   },
   container: {
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 30,
   },
   card: {
-    width: 340,
+    width: width - 60,
     paddingVertical: 20,
     paddingHorizontal: 25,
     justifyContent: 'space-between',
     backgroundColor: 'white',
     borderRadius: 10,
-
     zIndex: 1,
-
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
@@ -67,12 +66,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   secondCard: {
-    width: 340,
+    width: width - 60,
     height: 200,
     marginTop: -50,
     backgroundColor: 'white',
     borderRadius: 10,
-    marginHorizontal: 10,
     shadowColor: '#000',
     shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.25,
