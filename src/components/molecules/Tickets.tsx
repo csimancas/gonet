@@ -1,5 +1,6 @@
 import React from 'react';
 import {FlatList, StyleSheet, View, Dimensions} from 'react-native';
+import BackButton from '../atoms/BackButton';
 import CardTop from '../atoms/CardTop';
 import Cities from '../atoms/Cities';
 import BarCode from '../atoms/BarCode';
@@ -29,6 +30,13 @@ const Tickets = () => {
 
   return (
     <View style={styles.flatListContainer}>
+      <View
+        style={{
+          marginBottom: 20,
+          marginLeft: 20,
+        }}>
+        <BackButton />
+      </View>
       <FlatList
         data={array}
         renderItem={renderTickets}
@@ -42,10 +50,7 @@ const Tickets = () => {
 };
 
 const styles = StyleSheet.create({
-  flatListContainer: {
-    marginTop: 25,
-    // paddingHorizontal: 25,
-  },
+  flatListContainer: {},
   container: {
     alignItems: 'center',
     justifyContent: 'center',
