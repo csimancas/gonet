@@ -5,6 +5,7 @@ import React from 'react';
 import Auth from '../screens/Auth';
 import Detail from '../screens/Detail';
 import Home from '../screens/Home';
+import SplashScreen from '../screens/SplashScreen';
 import {colors} from '../utils/colors';
 
 const Stack = createNativeStackNavigator();
@@ -13,20 +14,34 @@ const RootStack = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen
+        name="Splash"
+        component={SplashScreen}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="Auth"
+        component={Auth}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
         name="Home"
         component={Home}
         options={{
           title: 'Agencia de Viaje',
-          headerStyle: {backgroundColor: colors.blueTitle},
+          headerStyle: {
+            backgroundColor: colors.blueTitle,
+          },
+          headerTintColor: '#fff',
           headerTitleStyle: {
-            color: 'white',
-            fontSize: 16,
             fontWeight: 'bold',
           },
-          headerTintColor: 'white',
+          headerBackVisible: false,
         }}
       />
-      <Stack.Screen name="Auth" component={Auth} />
       <Stack.Screen
         name="Detail"
         component={Detail}
@@ -39,7 +54,7 @@ const RootStack = () => {
             fontWeight: 'bold',
           },
           headerTintColor: 'white',
-          headerLeft: () => null,
+          headerBackVisible: false,
         }}
       />
     </Stack.Navigator>
