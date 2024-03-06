@@ -3,7 +3,9 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import {colors} from '../../utils/colors';
 import Plane from '../atoms/Plane';
 
-const Abreviation = () => {
+type AbreviationProps = {};
+
+const Abreviation: React.FC<AbreviationProps> = () => {
   return (
     <View style={styles.abreviationContainer}>
       <Text style={styles.abreviationText}>MEX</Text>
@@ -13,7 +15,17 @@ const Abreviation = () => {
   );
 };
 
-const TicketInfo = () => {
+type TicketInfoProps = {
+  borderTime: string;
+  startTime: string;
+  arrivalTime: string;
+};
+
+const TicketInfo: React.FC<TicketInfoProps> = ({
+  borderTime,
+  startTime,
+  arrivalTime,
+}) => {
   return (
     <View style={{marginTop: 20}}>
       <View
@@ -31,9 +43,9 @@ const TicketInfo = () => {
           <View>
             <Text
               style={[styles.textInfo, {textAlign: 'left', marginLeft: -1}]}>
-              Aboradaje
+              Abordaje
             </Text>
-            <Text style={styles.titleInfo}>05:55 AM</Text>
+            <Text style={styles.titleInfo}>{borderTime}</Text>
           </View>
           <View
             style={{
@@ -43,7 +55,7 @@ const TicketInfo = () => {
               style={[styles.textInfo, {textAlign: 'left', marginLeft: -1}]}>
               Salida
             </Text>
-            <Text style={styles.titleInfo}>06:25 AM</Text>
+            <Text style={styles.titleInfo}>{startTime}</Text>
           </View>
         </View>
         <View>
@@ -56,14 +68,19 @@ const TicketInfo = () => {
             ]}>
             Aterrizaje
           </Text>
-          <Text style={styles.titleInfo}>20:00 PM</Text>
+          <Text style={styles.titleInfo}>{arrivalTime}</Text>
         </View>
       </View>
     </View>
   );
 };
 
-const PassengerInfo = () => {
+type PassengerInfoProps = {
+  name: string;
+  seat: string;
+};
+
+const PassengerInfo: React.FC<PassengerInfoProps> = ({name, seat}) => {
   return (
     <View
       style={{
@@ -75,7 +92,7 @@ const PassengerInfo = () => {
         <Text style={[styles.textInfo, {textAlign: 'left', marginLeft: -1}]}>
           Pasajero
         </Text>
-        <Text style={styles.titleInfo}>Moe Szyslak</Text>
+        <Text style={styles.titleInfo}>{name}</Text>
       </View>
       <View>
         <Text style={[styles.textInfo, {textAlign: 'right', marginLeft: -1}]}>
@@ -88,14 +105,28 @@ const PassengerInfo = () => {
               textAlign: 'right',
             },
           ]}>
-          54F
+          {seat}
         </Text>
       </View>
     </View>
   );
 };
 
-const Cities = () => {
+type CitiesProps = {
+  arrivalTime: string;
+  borderTime: string;
+  startTime: string;
+  name: string;
+  seat: string;
+};
+
+const Cities: React.FC<CitiesProps> = ({
+  arrivalTime,
+  borderTime,
+  startTime,
+  name,
+  seat,
+}) => {
   return (
     <>
       <View style={styles.container}>
@@ -104,14 +135,17 @@ const Cities = () => {
           <Text style={styles.title}>Dublín</Text>
         </View>
         <Abreviation />
-        <TicketInfo />
-        {/* <View style={styles.divider} /> */}
+        <TicketInfo
+          arrivalTime={arrivalTime}
+          borderTime={borderTime}
+          startTime={startTime}
+        />
+
         <Image
           source={require('../../../assets/images/dashedLine.png')}
           resizeMode="contain"
-          style={styles.divider}
         />
-        <PassengerInfo />
+        <PassengerInfo name={name} seat={seat} />
       </View>
     </>
   );
@@ -153,7 +187,11 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   divider: {
+    borderStyle: 'dashed',
     marginTop: 10,
+    borderBottomColor: colors.ligthGray,
+    borderBottomWidth: 1,
+    width: 'auto',
   },
 });
 

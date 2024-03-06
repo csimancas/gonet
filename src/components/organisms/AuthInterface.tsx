@@ -4,7 +4,9 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Image,
   StyleSheet,
+  ImageBackground,
 } from 'react-native';
 import {colors} from '../../utils/colors';
 import {useNavigation} from '@react-navigation/native';
@@ -18,25 +20,35 @@ const AuthInterface = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Inicio de Sesión</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Nombre de usuario"
-        value={username}
-        onChangeText={text => setUsername(text)}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Contraseña"
-        secureTextEntry
-        value={password}
-        onChangeText={text => setPassword(text)}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Iniciar Sesión</Text>
-      </TouchableOpacity>
-    </View>
+    <>
+      <ImageBackground
+        source={{
+          uri: 'https://picsum.photos/200/300',
+        }}
+        style={styles.image}>
+        <View style={styles.container}>
+          <View style={styles.card}>
+            <Text style={styles.title}>Inicio de Sesión</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="Nombre de usuario"
+              value={username}
+              onChangeText={text => setUsername(text)}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Contraseña"
+              secureTextEntry
+              value={password}
+              onChangeText={text => setPassword(text)}
+            />
+            <TouchableOpacity style={styles.button} onPress={handleLogin}>
+              <Text style={styles.buttonText}>Iniciar Sesión</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </ImageBackground>
+    </>
   );
 };
 
@@ -45,7 +57,22 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#fff',
+  },
+  card: {
+    width: '80%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 20,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   title: {
     fontSize: 24,
@@ -61,6 +88,9 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   button: {
+    width: '80%',
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: colors.blueTitle,
     padding: 10,
     borderRadius: 5,
@@ -69,6 +99,10 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  image: {
+    width: '100%',
+    height: '100%',
   },
 });
 

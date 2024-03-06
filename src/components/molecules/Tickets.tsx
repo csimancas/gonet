@@ -8,15 +8,57 @@ import ScrollDots from '../atoms/ScrollDots';
 
 const {width} = Dimensions.get('window');
 
-const array = [1, 2, 3];
+type PassengerData = {
+  name: string;
+  seat: string;
+  borderTime: string;
+  startTime: string;
+  arrivalTime: string;
+};
 
-const Tickets = () => {
-  const renderTickets = ({item, index}) => {
+const array: PassengerData[] = [
+  {
+    name: 'Moe Szyslak',
+    seat: '54F',
+    borderTime: '05:55 AM',
+    startTime: '06:25 AM',
+    arrivalTime: '20:00 PM',
+  },
+  {
+    name: 'Jane Szyslak',
+    seat: '54F',
+    borderTime: '05:55 AM',
+    startTime: '06:25 AM',
+    arrivalTime: '20:00 PM',
+  },
+  {
+    name: 'Edna Szyslak',
+    seat: '54F',
+    borderTime: '05:55 AM',
+    startTime: '06:25 AM',
+    arrivalTime: '20:00 PM',
+  },
+];
+
+const Tickets: React.FC = () => {
+  const renderTickets = ({
+    item,
+    index,
+  }: {
+    item: PassengerData;
+    index: number;
+  }) => {
     return (
       <View style={styles.container}>
         <View style={styles.card}>
           <CardTop />
-          <Cities />
+          <Cities
+            arrivalTime={item.arrivalTime}
+            borderTime={item.borderTime}
+            startTime={item.startTime}
+            name={item.name}
+            seat={item.seat}
+          />
         </View>
         <View style={styles.secondCard}>
           <BarCode />
@@ -40,7 +82,7 @@ const Tickets = () => {
       <FlatList
         data={array}
         renderItem={renderTickets}
-        keyExtractor={item => item.toString()}
+        keyExtractor={item => item.name}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         pagingEnabled={true}
