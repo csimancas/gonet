@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     tintColor: colors.blueTitle,
     position: 'absolute',
     left: 60,
+    bottom: 1,
     zIndex: 1,
   },
   dashes: {

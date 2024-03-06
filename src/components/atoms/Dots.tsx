@@ -35,7 +35,7 @@ const DotTwo = () => {
           backgroundColor: colors.ligthGray,
           position: 'absolute',
           top: 18,
-          left: 32,
+          left: 35,
           height: 30,
           width: 30,
           borderRadius: 17.5,
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   title: {
     color: 'white',
     textAlign: 'center',
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Bold',
     fontWeight: 'bold',
     fontSize: 12,
   },

@@ -18,7 +18,11 @@ const RootStack = () => {
         options={{
           title: 'Agencia de Viaje',
           headerStyle: {backgroundColor: colors.blueTitle},
-          headerTitleStyle: {color: 'white', fontSize: 16, fontWeight: 'bold'},
+          headerTitleStyle: {
+            color: 'white',
+            fontSize: 16,
+            fontWeight: 'bold',
+          },
           headerTintColor: 'white',
         }}
       />
@@ -27,10 +31,15 @@ const RootStack = () => {
         name="Detail"
         component={Detail}
         options={{
-          headerBackVisible: false,
           title: 'Agencia de Viaje',
           headerStyle: {backgroundColor: colors.blueTitle},
+          headerTitleStyle: {
+            color: 'white',
+            fontSize: 16,
+            fontWeight: 'bold',
+          },
           headerTintColor: 'white',
+          headerLeft: () => null,
         }}
       />
     </Stack.Navigator>
