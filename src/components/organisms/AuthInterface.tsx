@@ -23,7 +23,7 @@ const AuthInterface = () => {
     <>
       <ImageBackground
         source={{
-          uri: 'https://picsum.photos/200/300',
+          uri: 'https://random-image-pepebigotes.vercel.app/api/random-image ',
         }}
         style={styles.image}>
         <View style={styles.container}>
