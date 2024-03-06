@@ -21,7 +21,8 @@ const Stepper = ({step}: StepperProps) => {
 };
 
 const {width} = Dimensions.get('window');
-const lineLength = width * 0.15;
+console.log(width);
+const lineLength = width * 0.18;
 
 const styles = StyleSheet.create({
   stepperContainer: {
