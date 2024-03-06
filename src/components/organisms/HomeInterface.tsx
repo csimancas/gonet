@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import Banner from '../../components/atoms/Banner';
 import DetailCard from '../../components/molecules/DetailCard';
 import AmenitiesCard from '../atoms/AmenitiesCard';
@@ -16,12 +16,12 @@ const HomeInterface = () => {
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   detailContainer: {
     position: 'absolute',
     top: 120,
     left: 25,
   },
-};
+});
 
 export default HomeInterface;

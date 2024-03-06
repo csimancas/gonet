@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat-Bold',
   },
   image: {width: width, height: 166.51},
 });

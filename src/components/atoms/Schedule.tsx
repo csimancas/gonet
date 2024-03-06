@@ -9,6 +9,7 @@ const Schedule = () => {
       <View
         style={{
           flexDirection: 'column',
+          marginRight: 5,
         }}>
         <Text style={styles.title}>06:25</Text>
         <Text style={styles.subTitle}>MEX</Text>
@@ -19,6 +20,7 @@ const Schedule = () => {
       <View
         style={{
           flexDirection: 'column',
+          marginLeft: 5,
         }}>
         <Text style={styles.title}>23:00</Text>
         <Text style={styles.subTitle}>DUB</Text>
