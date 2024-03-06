@@ -1,10 +1,12 @@
 import React from 'react';
-import {Image, StyleSheet, View} from 'react-native';
+import {Image, StyleSheet, View, Dimensions} from 'react-native';
 import {colors} from '../../utils/colors';
 
+const {width} = Dimensions.get('window');
+const widthDashes = width * 0.4;
 const DottedDivider = () => {
   return (
-    <View style={{width: 160}}>
+    <View style={{width: widthDashes}}>
       <Image
         source={require('../../../assets/images/dashes.png')}
         resizeMode="contain"
